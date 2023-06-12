@@ -11,7 +11,9 @@ import SwiftUI
 struct VeRealApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            PostFeed()
+                .background(.black)
+                .foregroundColor(.white)
         }
     }
 }

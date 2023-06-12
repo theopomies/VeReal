@@ -8,17 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		0D0413202A3618DC00782ED2 /* VeRealApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D04131F2A3618DC00782ED2 /* VeRealApp.swift */; };
-		0D0413222A3618DC00782ED2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0413212A3618DC00782ED2 /* ContentView.swift */; };
 		0D0413242A3618DD00782ED2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D0413232A3618DD00782ED2 /* Assets.xcassets */; };
 		0D0413272A3618DD00782ED2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D0413262A3618DD00782ED2 /* Preview Assets.xcassets */; };
+		0D6EDE7C2A375F9B001753D9 /* DelaysTouches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6EDE7B2A375F9B001753D9 /* DelaysTouches.swift */; };
+		0D72E7882A361AD40022120A /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D72E7872A361AD40022120A /* PostView.swift */; };
+		0D72E78A2A3621540022120A /* PostImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D72E7892A3621540022120A /* PostImage.swift */; };
+		0D72E78C2A363E780022120A /* PostHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D72E78B2A363E780022120A /* PostHeader.swift */; };
+		0D72E78E2A364D230022120A /* PostFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D72E78D2A364D230022120A /* PostFeed.swift */; };
+		0D72E7902A36513A0022120A /* PostFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D72E78F2A36513A0022120A /* PostFooter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0D04131C2A3618DC00782ED2 /* VeReal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VeReal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D04131F2A3618DC00782ED2 /* VeRealApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeRealApp.swift; sourceTree = "<group>"; };
-		0D0413212A3618DC00782ED2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0D0413232A3618DD00782ED2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D0413262A3618DD00782ED2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0D6EDE7B2A375F9B001753D9 /* DelaysTouches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelaysTouches.swift; sourceTree = "<group>"; };
+		0D72E7872A361AD40022120A /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		0D72E7892A3621540022120A /* PostImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostImage.swift; sourceTree = "<group>"; };
+		0D72E78B2A363E780022120A /* PostHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHeader.swift; sourceTree = "<group>"; };
+		0D72E78D2A364D230022120A /* PostFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFeed.swift; sourceTree = "<group>"; };
+		0D72E78F2A36513A0022120A /* PostFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFooter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +61,9 @@
 		0D04131E2A3618DC00782ED2 /* VeReal */ = {
 			isa = PBXGroup;
 			children = (
+				0D6EDE7A2A375F8A001753D9 /* Helpers */,
+				0D72E7862A361AA90022120A /* Views */,
 				0D04131F2A3618DC00782ED2 /* VeRealApp.swift */,
-				0D0413212A3618DC00782ED2 /* ContentView.swift */,
 				0D0413232A3618DD00782ED2 /* Assets.xcassets */,
 				0D0413252A3618DD00782ED2 /* Preview Content */,
 			);
@@ -65,6 +76,26 @@
 				0D0413262A3618DD00782ED2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0D6EDE7A2A375F8A001753D9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0D6EDE7B2A375F9B001753D9 /* DelaysTouches.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		0D72E7862A361AA90022120A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0D72E7872A361AD40022120A /* PostView.swift */,
+				0D72E7892A3621540022120A /* PostImage.swift */,
+				0D72E78B2A363E780022120A /* PostHeader.swift */,
+				0D72E78D2A364D230022120A /* PostFeed.swift */,
+				0D72E78F2A36513A0022120A /* PostFooter.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +168,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D0413222A3618DC00782ED2 /* ContentView.swift in Sources */,
+				0D72E78E2A364D230022120A /* PostFeed.swift in Sources */,
 				0D0413202A3618DC00782ED2 /* VeRealApp.swift in Sources */,
+				0D72E78A2A3621540022120A /* PostImage.swift in Sources */,
+				0D72E7882A361AD40022120A /* PostView.swift in Sources */,
+				0D72E7902A36513A0022120A /* PostFooter.swift in Sources */,
+				0D6EDE7C2A375F9B001753D9 /* DelaysTouches.swift in Sources */,
+				0D72E78C2A363E780022120A /* PostHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +233,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -254,7 +290,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -280,6 +316,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,6 +346,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
