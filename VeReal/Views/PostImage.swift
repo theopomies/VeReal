@@ -13,9 +13,13 @@ struct PostImage: View {
 
     var body: some View {
         AsyncImage(url: imageURL) { image in
-            image.image?
+            image
                 .resizable()
                 .scaledToFill()
+                .aspectRatio(0.75, contentMode: .fill)
+        } placeholder: {
+            // Placeholder view here - this should match the size and aspect ratio of your image.
+            Rectangle().fill(.black)
                 .aspectRatio(0.75, contentMode: .fill)
         }
         .clipped()

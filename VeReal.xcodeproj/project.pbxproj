@@ -11,6 +11,7 @@
 		0D0413242A3618DD00782ED2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D0413232A3618DD00782ED2 /* Assets.xcassets */; };
 		0D0413272A3618DD00782ED2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D0413262A3618DD00782ED2 /* Preview Assets.xcassets */; };
 		0D6EDE7C2A375F9B001753D9 /* DelaysTouches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6EDE7B2A375F9B001753D9 /* DelaysTouches.swift */; };
+		0D6EDE7E2A3770EE001753D9 /* PostContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6EDE7D2A3770EE001753D9 /* PostContent.swift */; };
 		0D72E7882A361AD40022120A /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D72E7872A361AD40022120A /* PostView.swift */; };
 		0D72E78A2A3621540022120A /* PostImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D72E7892A3621540022120A /* PostImage.swift */; };
 		0D72E78C2A363E780022120A /* PostHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D72E78B2A363E780022120A /* PostHeader.swift */; };
@@ -24,6 +25,7 @@
 		0D0413232A3618DD00782ED2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D0413262A3618DD00782ED2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0D6EDE7B2A375F9B001753D9 /* DelaysTouches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelaysTouches.swift; sourceTree = "<group>"; };
+		0D6EDE7D2A3770EE001753D9 /* PostContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostContent.swift; sourceTree = "<group>"; };
 		0D72E7872A361AD40022120A /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		0D72E7892A3621540022120A /* PostImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostImage.swift; sourceTree = "<group>"; };
 		0D72E78B2A363E780022120A /* PostHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHeader.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				0D72E78B2A363E780022120A /* PostHeader.swift */,
 				0D72E78D2A364D230022120A /* PostFeed.swift */,
 				0D72E78F2A36513A0022120A /* PostFooter.swift */,
+				0D6EDE7D2A3770EE001753D9 /* PostContent.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 				0D72E78A2A3621540022120A /* PostImage.swift in Sources */,
 				0D72E7882A361AD40022120A /* PostView.swift in Sources */,
 				0D72E7902A36513A0022120A /* PostFooter.swift in Sources */,
+				0D6EDE7E2A3770EE001753D9 /* PostContent.swift in Sources */,
 				0D6EDE7C2A375F9B001753D9 /* DelaysTouches.swift in Sources */,
 				0D72E78C2A363E780022120A /* PostHeader.swift in Sources */,
 			);
@@ -315,8 +319,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -325,9 +329,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.theopomies.VeReal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -346,8 +353,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -356,9 +363,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.theopomies.VeReal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
