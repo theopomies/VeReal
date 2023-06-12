@@ -40,10 +40,13 @@ struct PostView: View {
                 .setBeRealImageType(.small)
                 .frame(width: 120)
                 .opacity(hideOverlay ? 0 : 0.95)
-                .padding()
                 .onTapGesture {
-                    swapped.toggle()
+                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                    withAnimation(.linear(duration: 0.1)) {
+                        swapped.toggle()
+                    }
                 }
+                .padding()
             }
             .overlay(alignment: .bottomTrailing) {
                 VStack(spacing: 20) {
