@@ -10,12 +10,16 @@ import SwiftUI
 struct PostContent: View {
     @Environment(\.colorScheme) var colorScheme
 
-    @State private var alignment: Alignment = .topLeading
     @State private var swapped = false
 
     @Binding var isHovered: Bool
+    @State private var magnification = 1.0
+    @State private var isMagnifying = false
+
+    @State private var translation: CGSize = .zero
+
     var hideOverlay: Bool {
-        isHovered
+        isHovered || isMagnifying
     }
 
     var body: some View {
@@ -23,7 +27,19 @@ struct PostContent: View {
             frontImage.opacity(swapped ? 1 : 0)
             backImage.opacity(swapped ? 0 : 1)
         }
+        .scaleEffect(magnification)
         .setBeRealImageType(.large)
+        .gesture(
+            MagnificationGesture()
+                .onChanged { m in
+                    magnification = m > 1 ? m : 1
+                    isMagnifying = true
+                }
+                .onEnded { _ in
+                    magnification = 1
+                    isMagnifying = false
+                }
+        )
         .delaysTouches(for: 0.2)
         .gesture(
             DragGesture(minimumDistance: 0)
@@ -34,23 +50,8 @@ struct PostContent: View {
                     isHovered = false
                 }
         )
-        .overlay(alignment: alignment) {
-            Button {
-                UIImpactFeedbackGenerator(style: .light).impactOccurred()
-                withAnimation(.linear(duration: 0.1)) {
-                    swapped.toggle()
-                }
-            } label: {
-                ZStack {
-                    backImage.opacity(swapped ? 1 : 0)
-                    frontImage.opacity(swapped ? 0 : 1)
-                }
-                .setBeRealImageType(.small)
-                .frame(width: 120)
-                .opacity(hideOverlay ? 0 : 0.95)
-            }
-//            .buttonStyle(.noStyle) // TODO: RESOLVE THIS ISSUE
-            .padding()
+        .overlay {
+            PostPictureOverlay(swapped: $swapped, hideOverlay: hideOverlay, backImage: backImage, frontImage: frontImage)
         }
         .overlay(alignment: .bottomTrailing) {
             VStack(spacing: 20) {
@@ -65,14 +66,14 @@ struct PostContent: View {
             .opacity(hideOverlay ? 0 : 0.95)
             .padding()
         }
-        .animation(hideOverlay ? .linear(duration: 0.3) : .linear(duration: 0.1), value: hideOverlay)
+        .animation(hideOverlay ? .linear(duration: 0.25) : .linear(duration: 0.1), value: hideOverlay)
     }
 
-    private var backImage: some View {
+    private var backImage: PostImage {
         PostImage(imageURL: URL(string: "https://i2.wp.com/anniewearsit.com/wp-content/uploads/2018/03/GOPR0040.jpg?w=4476&h=3357&ssl=1")!)
     }
 
-    private var frontImage: some View {
+    private var frontImage: PostImage {
         PostImage(imageURL: URL(string: "https://i.pinimg.com/736x/83/c4/c5/83c4c56061a4360654977e33b87b2013.jpg")!)
     }
 }
@@ -83,14 +84,4 @@ struct PostContent_Previews: PreviewProvider {
             .background(.black)
             .foregroundColor(.white)
     }
-}
-
-struct NoStyleButtonStyle: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-    }
-}
-
-extension ButtonStyle where Self == NoStyleButtonStyle {
-    static var noStyle: NoStyleButtonStyle { NoStyleButtonStyle() }
 }
