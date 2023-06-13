@@ -13,11 +13,12 @@ struct PostView: View {
 
     var body: some View {
         VStack {
-            PostHeader()
+            PostHeader(canInteract: !hidden)
 
             PostContent(isHovered: $isHovered, hidden: $hidden)
 
             PostFooter()
+                .opacity(hidden ? 0 : 1)
         }
     }
 }

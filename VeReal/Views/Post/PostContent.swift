@@ -59,7 +59,14 @@ struct PostContent: View {
         .overlay {
             if hidden {
                 ZStack {
-                    Rectangle().fill(.ultraThinMaterial)
+                    Rectangle()
+                        .fill(.ultraThinMaterial)
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(lineWidth: 15)
+                                .foregroundColor(.black)
+                                .blur(radius: 20)
+                        }
                     VStack(spacing: 6) {
                         Image(systemName: "eye.slash.fill")
                             .font(.title)

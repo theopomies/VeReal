@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct PostHeader: View {
+    var canInteract: Bool
+
     var body: some View {
         HStack {
             Image(systemName: "person.crop.circle")
@@ -36,6 +38,7 @@ struct PostHeader: View {
                     .font(.headline)
                     .padding(.vertical)
             }
+            .disabled(!canInteract)
         }
         .padding(.horizontal)
         .padding(.top)
@@ -44,6 +47,6 @@ struct PostHeader: View {
 
 struct PostHeader_Previews: PreviewProvider {
     static var previews: some View {
-        PostHeader()
+        PostHeader(canInteract: true)
     }
 }
