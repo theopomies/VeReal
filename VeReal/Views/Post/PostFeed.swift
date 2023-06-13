@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct PostFeed: View {
+    @State private var hidden = true
+
     var body: some View {
         ScrollView {
             LazyVStack {
                 ForEach(0 ..< 20) { _ in
-                    PostView()
+                    PostView(hidden: $hidden)
                 }
             }
         }

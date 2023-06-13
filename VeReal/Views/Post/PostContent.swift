@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct PostContent: View {
-    @Environment(\.colorScheme) var colorScheme
-
     @State private var swapped = false
 
     @Binding var isHovered: Bool
@@ -17,6 +15,7 @@ struct PostContent: View {
     @State private var isMagnifying = false
 
     @State private var translation: CGSize = .zero
+    @Binding var hidden: Bool
 
     var hideOverlay: Bool {
         isHovered || isMagnifying
@@ -54,19 +53,39 @@ struct PostContent: View {
             PostPictureOverlay(swapped: $swapped, hideOverlay: hideOverlay, backImage: backImage, frontImage: frontImage)
         }
         .overlay(alignment: .bottomTrailing) {
-            VStack(spacing: 20) {
-                Image(systemName: "bubble.left.fill")
-                Image(systemName: colorScheme == .light ? "smiley.fill" : "smiley")
-                    .onTapGesture {
-                        UIImpactFeedbackGenerator(style: .light).impactOccurred()
-                    }
-            }
-            .shadow(radius: 5)
-            .font(.title2)
-            .opacity(hideOverlay ? 0 : 0.95)
-            .padding()
+            ReactionsOverlay(isVisible: !hideOverlay)
         }
         .animation(hideOverlay ? .linear(duration: 0.25) : .linear(duration: 0.1), value: hideOverlay)
+        .overlay {
+            if hidden {
+                ZStack {
+                    Rectangle().fill(.ultraThinMaterial)
+                    VStack(spacing: 6) {
+                        Image(systemName: "eye.slash.fill")
+                            .font(.title)
+                        Text("Post to view")
+                            .font(.title2)
+                        Text("To view your frieds' BeReal, share yours with them.")
+                            .font(.subheadline)
+
+                        Button(action: {
+                            hidden.toggle()
+                        }) {
+                            Text("Post a Late BeReal.")
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                                .padding(.horizontal, 20)
+                                .padding(.vertical, 12)
+                                .background(.white)
+                                .foregroundColor(.black)
+                                .cornerRadius(12)
+                        }
+                        .padding()
+                    }
+                }
+            }
+        }
+        .clipShape(RoundedRectangle(cornerRadius: 20))
     }
 
     private var backImage: PostImage {
@@ -80,7 +99,7 @@ struct PostContent: View {
 
 struct PostContent_Previews: PreviewProvider {
     static var previews: some View {
-        PostContent(isHovered: .constant(false))
+        PostContent(isHovered: .constant(false), hidden: .constant(true))
             .background(.black)
             .foregroundColor(.white)
     }

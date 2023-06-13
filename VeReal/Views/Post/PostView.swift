@@ -9,11 +9,13 @@ import SwiftUI
 
 struct PostView: View {
     @State private var isHovered = false
+    @Binding var hidden: Bool
+
     var body: some View {
         VStack {
             PostHeader()
 
-            PostContent(isHovered: $isHovered)
+            PostContent(isHovered: $isHovered, hidden: $hidden)
 
             PostFooter()
         }
@@ -22,7 +24,7 @@ struct PostView: View {
 
 struct PostView_Previews: PreviewProvider {
     static var previews: some View {
-        PostView()
+        PostView(hidden: .constant(false))
             .background(.black)
             .foregroundColor(.white)
     }
